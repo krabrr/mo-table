@@ -13,11 +13,22 @@ function init() {
   df = document.getElementById("df");
   wr = document.getElementById("wr");
   pn = document.getElementById("pn");
+  backButton = document.getElementById("back");
+  nextButton = document.getElementById("next");
+  addButton = document.getElementById("add");
   editButton = document.getElementById("edit");
   deleteButton = document.getElementById("delete");
   exportButton = document.getElementById("export");
   addButtonBar = document.getElementById("add-bar");
   editButtonBar = document.getElementById("edit-bar");
+
+  backButton.onclick = back;
+  nextButton.onclick = next;
+  addButton.onclick = add;
+  editButton.onclick = editCurrent;
+  deleteButton.onclick = deleteCurrent;
+  exportButton.onclick = exportTable;
+
   xmlhttp = new XMLHttpRequest("Microsoft.XMLHTTP");
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -86,14 +97,14 @@ function reset() {
   pn.value = "";
 }
 
-function edit() {
+function editCurrent() {
 
 }
 
-function delete() {
+function deleteCurrent() {
 
 }
 
-function export() {
+function exportTable() {
 
 }
