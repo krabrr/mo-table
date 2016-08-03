@@ -14,6 +14,7 @@ if ($command == "get") {
     $date = $_GET["date"];
     $hn = $_GET["hn"];
     $op = $_GET["op"];
+    $df = $_GET["df"];
     $wr = $_GET["wr"];
     $pn = $_GET["pn"];
     $query = "INSERT INTO mo (date, hn, operation, df, room, pname) VALUES ($date, $hn, $op, $df, $wr, $pn)";
