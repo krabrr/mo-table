@@ -38,7 +38,7 @@ function init() {
       validateView();
     }
   };
-  xmlhttp.open("GET", "connect.php", true);
+  xmlhttp.open("GET", "connect.php?command=get", true);
   xmlhttp.send();
 }
 
@@ -88,7 +88,7 @@ function add() {
       validateView();
     }
   };
-  xmlhttp.open("GET", "connect.php?" + info, true);
+  xmlhttp.open("GET", "connect.php?command=add," + info, true);
   xmlhttp.send();
 }
 
