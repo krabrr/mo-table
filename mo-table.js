@@ -71,7 +71,6 @@ function next() {
 }
 
 function add() {
-  alert("add");
   var arr = [], info;
   arr.push("date=" + date.value);
   arr.push("hn=" + hn.value);
@@ -83,8 +82,9 @@ function add() {
   xmlhttp = new XMLHttpRequest("Microsoft.XMLHTTP");
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      alert(xmlhttp.responseText);
-      rows = JSON.parse(xmlhttp.responseText);
+      if (xmlhttp.responseText) {
+        rows = JSON.parse(xmlhttp.responseText);
+      }
       validateView();
     }
   };
