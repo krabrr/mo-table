@@ -7,6 +7,7 @@ var rows, date, hn, op, df, wr, pn,
 window.onload = init();
 
 function init() {
+  alert("init");
   date = document.getElementById("date");
   hn = document.getElementById("hn");
   op = document.getElementById("op");
