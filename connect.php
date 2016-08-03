@@ -28,7 +28,7 @@ if ($command == "get") {
 }
 
 if ($result = mysqli_query($conn, $query)) {
-  $query = "SELECT * FROM mo"
+  $query = "SELECT * FROM mo";
   if ($result = mysqli_query($conn, $query)) {
     $data = [];
     while ($row = mysqli_fetch_assoc($result)) {
