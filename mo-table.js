@@ -25,7 +25,7 @@ function init() {
       validateView();
     }
   };
-  xmlhttp.open("GET", "get-table.php", true);
+  xmlhttp.open("GET", "connect.php", true);
   xmlhttp.send();
 }
 
@@ -58,7 +58,23 @@ function next() {
 }
 
 function add() {
-
+  var arr = [], info;
+  arr.push("date=" + date.value);
+  arr.push("hn=" + hn.value);
+  arr.push("op=" + op.value);
+  arr.push("df=" + df.value);
+  arr.push("wr=" + wr.value);
+  arr.push("pn=" + pn.value);
+  info = arr.join(",");
+  xmlhttp = new XMLHttpRequest("Microsoft.XMLHTTP");
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      rows = JSON.parse(xmlhttp.responseText);
+      validateView();
+    }
+  };
+  xmlhttp.open("GET", "connect.php?" + info, true);
+  xmlhttp.send();
 }
 
 function reset() {
