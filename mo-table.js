@@ -33,7 +33,7 @@ function init() {
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       if (xmlhttp.responseText) {
-        rows = JSON.parse(xmlhttp.responseText);  
+        rows = JSON.parse(xmlhttp.responseText);
       }
       validateView();
     }
@@ -51,7 +51,7 @@ function validateView(idx=-1) {
       idx = 1;
     }
   }
-  state = (rows.length < idx) ? EDIT : NEW;
+  state = (rows.length < idx) ? NEW : EDIT;
   if (state == EDIT) {
     addButtonBar.style.display = "none";
     editButtonBar.style.display = "block";
