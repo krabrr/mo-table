@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("www.nbaramichai.com", "root", "timetowake", "mo");
+$conn = mysqli_connect("www.nbaramichai.com", "nbaramichai", "momomo", "mo");
 if (!$conn) {
   die();
   echo mysqli_error($conn);
