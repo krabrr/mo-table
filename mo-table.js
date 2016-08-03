@@ -4,7 +4,7 @@ var rows, date, hn, op, df, wr, pn,
   editButton, deleteButton, exportButton,
   addButtonBar, editButtonBar, xmlhttp, state;
 
-window.onload = init();
+window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   date = document.getElementById("date");
@@ -24,9 +24,7 @@ function init() {
 
   backButton.onclick = back;
   nextButton.onclick = next;
-  addButton.onclick = function() {
-    alert('123');
-  };
+  addButton.onclick = add;
   editButton.onclick = editCurrent;
   deleteButton.onclick = deleteCurrent;
   exportButton.onclick = exportTable;
