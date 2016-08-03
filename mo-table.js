@@ -78,7 +78,7 @@ function add() {
   arr.push("df=" + df.value);
   arr.push("wr=" + wr.value);
   arr.push("pn=" + pn.value);
-  info = arr.join(",");
+  info = arr.join("&");
   xmlhttp = new XMLHttpRequest("Microsoft.XMLHTTP");
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -88,7 +88,7 @@ function add() {
       validateView();
     }
   };
-  xmlhttp.open("GET", "connect.php?command=add," + info, true);
+  xmlhttp.open("GET", "connect.php?command=add&" + info, true);
   xmlhttp.send();
 }
 
