@@ -7,7 +7,6 @@ var rows, date, hn, op, df, wr, pn,
 window.onload = init();
 
 function init() {
-  alert("init");
   date = document.getElementById("date");
   hn = document.getElementById("hn");
   op = document.getElementById("op");
@@ -25,7 +24,9 @@ function init() {
 
   backButton.onclick = back;
   nextButton.onclick = next;
-  addButton.onclick = add;
+  addButton.onclick = function() {
+    alert('123');
+  };
   editButton.onclick = editCurrent;
   deleteButton.onclick = deleteCurrent;
   exportButton.onclick = exportTable;
