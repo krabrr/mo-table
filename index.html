@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+  <style media="screen">
+    table {
+      width: 100%;
+      margin: 10px 0 0 0;
+    }
+    td, th {
+      padding: 0 10px 10px;
+    }
+    .mo-input {
+      width: 100%;
+    }
+    .mo-button {
+      width: 100%;
+    }
+    .row {
+      margin-bottom: 10px;
+    }
+    #edit-bar {
+      display: none;
+    }
+  </style>
+  <script src="mo-table.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="main col-xs-12 col-sm-4">
+      <table>
+        <tr>
+          <td>Date:</td>
+          <td><input id="date" class="mo-input" type="text" name="date" value=""></td>
+        </tr>
+        <tr>
+          <td>HN:</td>
+          <td><input id="hn" class="mo-input" type="text" name="date" value=""></td>
+        </tr>
+        <tr>
+          <td>Operation:</td>
+          <td><input id="op" class="mo-input" type="text" name="date" value=""></td>
+        </tr>
+        <tr>
+          <td>DF:</td>
+          <td><input id="df" class="mo-input" type="text" name="date" value=""></td>
+        </tr>
+        <tr>
+          <td>Ward/Room:</td>
+          <td><input id="wr" class="mo-input" type="text" name="date" value=""></td>
+        </tr>
+        <tr>
+          <td>PatientName:</td>
+          <td><input id="pn" class="mo-input" type="text" name="date" value=""></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div id="navi-bar" class="col-xs-12 col-sm-4">
+      <div class="col-xs-6">
+        <input id="back" class="mo-button btn btn-primary" type="button" name="back" value="Back">
+      </div>
+      <div class="col-xs-6">
+        <input id="next" class="mo-button btn btn-primary" type="button" name="next" value="Next">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="add-bar" class="col-xs-12 col-sm-4">
+      <div class="col-xs-6">
+        <input id="add" class="mo-button btn btn-primary" type="button" name="add" value="Add">
+      </div>
+      <div class="col-xs-6">
+        <input id="reset" class="mo-button btn btn-primary" type="button" name="reset" value="Reset">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="edit-bar" class="col-xs-12 col-sm-4">
+      <div class="col-xs-6">
+        <input id="edit" class="mo-button btn btn-primary" type="button" name="edit" value="Edit">
+      </div>
+      <div class="col-xs-6">
+        <input id="delete" class="mo-button btn btn-primary" type="button" name="delete" value="Delete">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <input id="export" class="mo-button btn btn-primary" type="button" name="export" value="Export">
+    </div>
+  </div>
+</body>
+</html>
