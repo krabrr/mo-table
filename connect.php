@@ -17,11 +17,19 @@ if ($command == "get") {
     $df = $_GET["df"];
     $wr = $_GET["wr"];
     $pn = $_GET["pn"];
-    $query = "INSERT INTO mo (date, hn, operation, df, room, pname) VALUES ($date, $hn, $op, $df, $wr, $pn)";
+    $query = "INSERT INTO mo (date, hn, operation, df, room, pname) VALUES ('$date', '$hn', '$op', '$df', '$wr', '$pn')";
   } else if ($command == "edit") {
-
+    $id = $_GET["id"];
+    $date = $_GET["date"];
+    $hn = $_GET["hn"];
+    $op = $_GET["op"];
+    $df = $_GET["df"];
+    $wr = $_GET["wr"];
+    $pn = $_GET["pn"];
+    $query = "UPDATE mo SET (date = '$date', hn = '$hn', operator = '$op', df = '$df', room = '$wr', pname = '$pn') WHERE id = '$id'";
   } else if ($command == "delete") {
-
+    $id = $_GET["id"];
+    $query = "DELETE FROM mo WHERE id = '$id'";
   } else if ($command == "delete_all") {
 
   } else {

@@ -132,7 +132,20 @@ function editCurrent() {
 }
 
 function deleteCurrent() {
-
+  var row = rows[currentIdx - 1];
+  if (!row || !row.id) {
+    return;
+  }
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      if (xmlhttp.responseText) {
+        rows = JSON.parse(xmlhttp.responseText);
+      }
+      validateView(currentIdx);
+    }
+  };
+  xmlhttp.open("GET", "connect.php?command=delete&id" + row.id, true);
+  xmlhttp.send();
 }
 
 function exportTable() {
