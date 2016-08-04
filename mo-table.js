@@ -2,8 +2,8 @@ const EDIT = 1, NEW = 2;
 var rows, date, hn, op, df, wr, pn,
   backButton, nextButton, addButton,
   editButton, deleteButton, exportButton,
-  addButtonBar, editButtonBar, xmlhttp, state,
-  currentIdx, header;
+  addButtonBar, editButtonBar, resetButton,
+  xmlhttp, state, currentIdx, header;
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -18,6 +18,7 @@ function init() {
   backButton = document.getElementById("back");
   nextButton = document.getElementById("next");
   addButton = document.getElementById("add");
+  resetButtonBar = document.getElementById("reset");
   editButton = document.getElementById("edit");
   deleteButton = document.getElementById("delete");
   exportButton = document.getElementById("export");
@@ -27,6 +28,7 @@ function init() {
   backButton.onclick = back;
   nextButton.onclick = next;
   addButton.onclick = add;
+  resetButton.onclick = reset;
   editButton.onclick = editCurrent;
   deleteButton.onclick = deleteCurrent;
   exportButton.onclick = exportTable;
@@ -71,10 +73,18 @@ function validateView(idx=-1) {
       wr.value = row.wr;
       pn.value = row.pn;
     }
+    nextButton.setAttribute("disabled", "disabled");
   } else {
     reset();
     addButtonBar.style.display = "block";
     editButtonBar.style.display = "none";
+    nextButton.removeAttribute("disabled");
+  }
+
+  if (idx == 1) {
+    backButton.setAttribute("disabled", "disabled");
+  } else {
+    backButton.removeAttribute("disabled");
   }
 }
 
