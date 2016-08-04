@@ -2,11 +2,13 @@ const EDIT = 1, NEW = 2;
 var rows, date, hn, op, df, wr, pn,
   backButton, nextButton, addButton,
   editButton, deleteButton, exportButton,
-  addButtonBar, editButtonBar, xmlhttp, state;
+  addButtonBar, editButtonBar, xmlhttp, state,
+  currentIdx, header;
 
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
+  header = document.getElementById("header");
   date = document.getElementById("date");
   hn = document.getElementById("hn");
   op = document.getElementById("op");
@@ -51,6 +53,8 @@ function validateView(idx=-1) {
       idx = 1;
     }
   }
+  currentIdx = idx;
+  header.innerHTML = "Case No.: " + currentIdx;
   state = (rows.length < idx) ? NEW : EDIT;
   if (state == EDIT) {
     addButtonBar.style.display = "none";
