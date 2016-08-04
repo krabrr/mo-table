@@ -20,7 +20,6 @@ if ($command == "get") {
     $pn = $_GET["pn"];
     $query = "INSERT INTO mo (date, hn, operation, df, room, pname) VALUES ('$date', '$hn', '$op', '$df', '$wr', '$pn')";
   } else if ($command == "edit") {
-    error_log("edit\n", 3, $log_path);
     $id = $_GET["id"];
     $date = $_GET["date"];
     $hn = $_GET["hn"];
@@ -41,6 +40,7 @@ if ($command == "get") {
 
   if ($result = mysqli_query($conn, $query)) {
     // success
+    error_log($result, 3, $log_path);
   } else {
     die();
     echo mysqli_error($conn);
