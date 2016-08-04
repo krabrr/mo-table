@@ -41,14 +41,14 @@ function init() {
       if (xmlhttp.responseText) {
         rows = JSON.parse(xmlhttp.responseText);
       }
-      validateView();
+      validateView(-1);
     }
   };
   xmlhttp.open("GET", "connect.php?command=get", true);
   xmlhttp.send();
 }
 
-function validateView(idx=-1) {
+function validateView(idx) {
   var row;
   if (rows && rows.length) {
     if (idx == -1 || idx > rows.length) {
@@ -111,7 +111,7 @@ function add() {
       if (xmlhttp.responseText) {
         rows = JSON.parse(xmlhttp.responseText);
       }
-      validateView();
+      validateView(-1);
     }
   };
   xmlhttp.open("GET", "connect.php?command=add&" + info, true);
