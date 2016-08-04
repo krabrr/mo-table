@@ -27,23 +27,22 @@ if ($command == "get") {
     $df = $_GET["df"];
     $wr = $_GET["wr"];
     $pn = $_GET["pn"];
-    $query = "UPDATE mo SET date = '$date', hn = '$hn', operator = '$op', df = '$df', room = '$wr', pname = '$pn' WHERE id = '$id'";
+    $query = "UPDATE mo SET date = '$date', hn = '$hn', operation = '$op', df = '$df', room = '$wr', pname = '$pn' WHERE id = '$id'";
   } else if ($command == "delete") {
     $id = $_GET["id"];
     $query = "DELETE FROM mo WHERE id = '$id'";
   } else if ($command == "delete_all") {
 
   } else {
+    error_log("command not found", 3, $log_path);
     die();
-    echo "command not found";
   }
 
   if ($result = mysqli_query($conn, $query)) {
     // success
   } else {
-    die();
     error_log(mysqli_error($conn), 3, $log_path);
-    echo mysqli_error($conn);
+    die();
   }
 }
 
