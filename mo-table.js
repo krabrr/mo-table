@@ -128,7 +128,29 @@ function reset() {
 }
 
 function editCurrent() {
-
+  var row = rows[currentIdx - 1];
+  if (!row || !row.id) {
+    return;
+  }
+  var arr = [], info;
+  arr.push("date=" + date.value);
+  arr.push("hn=" + hn.value);
+  arr.push("op=" + op.value);
+  arr.push("df=" + df.value);
+  arr.push("wr=" + wr.value);
+  arr.push("pn=" + pn.value);
+  arr.push("id=" + row.id);
+  info = arr.join("&");
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      if (xmlhttp.responseText) {
+        rows = JSON.parse(xmlhttp.responseText);
+      }
+      validateView(currentIdx);
+    }
+  };
+  xmlhttp.open("GET", "connect.php?command=edit&" + info, true);
+  xmlhttp.send();
 }
 
 function deleteCurrent() {
@@ -144,7 +166,7 @@ function deleteCurrent() {
       validateView(currentIdx);
     }
   };
-  xmlhttp.open("GET", "connect.php?command=delete&id" + row.id, true);
+  xmlhttp.open("GET", "connect.php?command=delete&id=" + row.id, true);
   xmlhttp.send();
 }
 
