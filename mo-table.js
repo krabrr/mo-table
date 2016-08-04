@@ -171,5 +171,28 @@ function deleteCurrent() {
 }
 
 function exportTable() {
+  var row, i,
+    result = "",
+    element = document.createElement("a");
+  if (!rows || !rows.length) {
+    return;
+  }
+  result += "Date,HN,Operation,DF,Ward/Room,Patient Name\n";
+  for (i = 0; i < rows.length; i++) {
+    row = rows[i];
+    result += row.date + ",";
+    result += row.hn + ",";
+    result += row.op + ",";
+    result += row.df + ",";
+    result += row.wr + ",";
+    result += row.pn + ",";
+    result += "\n";
+  }
 
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(result));
+  element.setAttribute('download', 'report.csv');
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
 }
