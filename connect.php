@@ -26,7 +26,7 @@ if ($command == "get") {
     $df = $_GET["df"];
     $wr = $_GET["wr"];
     $pn = $_GET["pn"];
-    $query = "UPDATE mo SET (date = '$date', hn = '$hn', operator = '$op', df = '$df', room = '$wr', pname = '$pn') WHERE id = '$id'";
+    $query = "UPDATE mo SET date = '$date', hn = '$hn', operator = '$op', df = '$df', room = '$wr', pname = '$pn' WHERE id = '$id'";
   } else if ($command == "delete") {
     $id = $_GET["id"];
     $query = "DELETE FROM mo WHERE id = '$id'";
