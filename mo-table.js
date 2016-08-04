@@ -73,12 +73,12 @@ function validateView(idx=-1) {
       wr.value = row.wr;
       pn.value = row.pn;
     }
-    nextButton.setAttribute("disabled", "disabled");
+    nextButton.removeAttribute("disabled");
   } else {
     reset();
     addButtonBar.style.display = "block";
     editButtonBar.style.display = "none";
-    nextButton.removeAttribute("disabled");
+    nextButton.setAttribute("disabled", "disabled");
   }
 
   if (idx == 1) {
