@@ -40,9 +40,9 @@ if ($command == "get") {
 
   if ($result = mysqli_query($conn, $query)) {
     // success
-    error_log($result, 3, $log_path);
   } else {
     die();
+    error_log(mysqli_error($conn), 3, $log_path);
     echo mysqli_error($conn);
   }
 }
