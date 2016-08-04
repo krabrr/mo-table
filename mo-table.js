@@ -195,6 +195,9 @@ function exportTable() {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);*/
-  xmlhttp.open("GET", "connect.php?command=download", true);
-  xmlhttp.send();
+  var request = new XMLHttpRequest("Microsoft.XMLHTTP");
+  request.setRequestHeader("Content-type", "text/plain");
+  request.setRequestHeader("Content-Disposition", "attachment; filename=report.csv");
+  request.open("GET", "connect.php?command=download", true);
+  request.send();
 }

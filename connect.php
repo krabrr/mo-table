@@ -34,8 +34,6 @@ if ($command == "get") {
   } else if ($command == "delete_all") {
 
   } else if ($command == "download") {
-    header("Content-type: text/plain");
-    header("Content-Disposition: attachment; filename=report.csv");
     $query = "SELECT * FROM mo";
     if ($result = mysqli_query($conn, $query)) {
       $content = "Date,HN,Operation,DF,Ward/Room,Patient Name\n";
