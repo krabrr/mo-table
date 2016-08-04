@@ -43,7 +43,7 @@ if ($command == "get") {
         $content .= $row["operation"] . ",";
         $content .= $row["df"] . ",";
         $content .= $row["room"] . ",";
-        $content .= $row["pname"] . ",";
+        $content .= $row["pname"];
         $content .= "\n";
       }
       echo $content;
