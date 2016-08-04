@@ -19,7 +19,7 @@ if ($command == "get") {
     $pn = $_GET["pn"];
     $query = "INSERT INTO mo (date, hn, operation, df, room, pname) VALUES ('$date', '$hn', '$op', '$df', '$wr', '$pn')";
   } else if ($command == "edit") {
-    error_log("edit\n", 3, "/mypath/php.log");
+    error_log("edit\n", 3, "/var/log/apache2/error.log");
     $id = $_GET["id"];
     $date = $_GET["date"];
     $hn = $_GET["hn"];
