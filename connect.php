@@ -1,5 +1,5 @@
 <?php
-$log_path = "/var/www/html/log";
+$log_path = "/var/www/html/mo-table/log";
 $conn = mysqli_connect("www.nbaramichai.com", "nbaramichai", "momomo", "mo");
 if (!$conn) {
   die();
