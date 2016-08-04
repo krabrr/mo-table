@@ -1,4 +1,5 @@
 <?php
+$log_path = "/var/www/html/log";
 $conn = mysqli_connect("www.nbaramichai.com", "nbaramichai", "momomo", "mo");
 if (!$conn) {
   die();
@@ -19,7 +20,7 @@ if ($command == "get") {
     $pn = $_GET["pn"];
     $query = "INSERT INTO mo (date, hn, operation, df, room, pname) VALUES ('$date', '$hn', '$op', '$df', '$wr', '$pn')";
   } else if ($command == "edit") {
-    error_log("edit\n", 3, "/var/log/apache2/error.log");
+    error_log("edit\n", 3, $log_path);
     $id = $_GET["id"];
     $date = $_GET["date"];
     $hn = $_GET["hn"];
