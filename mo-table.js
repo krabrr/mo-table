@@ -50,14 +50,14 @@ function validateView(idx=-1) {
   var row;
   if (rows && rows.length) {
     if (idx == -1 || idx > rows.length) {
-      idx = rows.length;
+      idx = rows.length + 1;
     }
   } else {
     rows = [];
     idx = 1;
   }
   currentIdx = idx;
-  header.innerHTML = "Case No.: " + currentIdx;
+  header.innerHTML = "Case No. " + currentIdx;
   state = (rows.length < idx) ? NEW : EDIT;
   if (state == EDIT) {
     addButtonBar.style.display = "none";
