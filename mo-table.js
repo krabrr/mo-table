@@ -171,7 +171,7 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  var row, i,
+  /*var row, i,
     result = "",
     element = document.createElement("a");
   if (!rows || !rows.length) {
@@ -194,5 +194,7 @@ function exportTable() {
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
-  document.body.removeChild(element);
+  document.body.removeChild(element);*/
+  xmlhttp.open("GET", "connect.php?command=download", true);
+  xmlhttp.send();
 }

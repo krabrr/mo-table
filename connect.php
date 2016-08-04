@@ -33,6 +33,27 @@ if ($command == "get") {
     $query = "DELETE FROM mo WHERE id = '$id'";
   } else if ($command == "delete_all") {
 
+  } else if ($command == "download") {
+    header("Content-type: text/plain");
+    header("Content-Disposition: attachment; filename=report.csv");
+    $query = "SELECT * FROM mo";
+    if ($result = mysqli_query($conn, $query)) {
+      $content = "Date,HN,Operation,DF,Ward/Room,Patient Name\n";
+      while ($row = mysqli_fetch_assoc($result)) {
+        $content .= $row["date"] . ",";
+        $content .= $row["hn"] . ",";
+        $content .= $row["operation"] . ",";
+        $content .= $row["df"] . ",";
+        $content .= $row["room"] . ",";
+        $content .= $row["pname"] . ",";
+        $content .= "\n";
+      }
+      echo $content;
+    } else {
+      error_log(mysqli_error($conn), 3, $log_path);
+      die();
+    }
+    return;
   } else {
     error_log("command not found", 3, $log_path);
     die();
