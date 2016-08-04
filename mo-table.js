@@ -31,6 +31,8 @@ function init() {
   deleteButton.onclick = deleteCurrent;
   exportButton.onclick = exportTable;
 
+  header.innerHTML = "Loading..."
+
   xmlhttp = new XMLHttpRequest("Microsoft.XMLHTTP");
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -60,7 +62,7 @@ function validateView(idx=-1) {
   if (state == EDIT) {
     addButtonBar.style.display = "none";
     editButtonBar.style.display = "block";
-    row = row[idx - 1]
+    row = rows[idx - 1];
     if (row) {
       date.value = row.date;
       hn.value = row.hn;
