@@ -18,7 +18,7 @@ function init() {
   backButton = document.getElementById("back");
   nextButton = document.getElementById("next");
   addButton = document.getElementById("add");
-  resetButtonBar = document.getElementById("reset");
+  resetButton = document.getElementById("reset");
   editButton = document.getElementById("edit");
   deleteButton = document.getElementById("delete");
   exportButton = document.getElementById("export");
