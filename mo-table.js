@@ -196,8 +196,8 @@ function exportTable() {
   element.click();
   document.body.removeChild(element);*/
   var request = new XMLHttpRequest("Microsoft.XMLHTTP");
+  request.open("GET", "connect.php?command=download", true);
   request.setRequestHeader("Content-type", "text/plain");
   request.setRequestHeader("Content-Disposition", "attachment; filename=report.csv");
-  request.open("GET", "connect.php?command=download", true);
   request.send();
 }
