@@ -45,13 +45,14 @@ function init() {
 }
 
 function validateView(idx=-1) {
-  if (idx == -1) {
-    if (rows && rows.length) {
+  var row;
+  if (rows && rows.length) {
+    if (idx == -1 || idx > rows.length) {
       idx = rows.length;
-    } else {
-      rows = [];
-      idx = 1;
     }
+  } else {
+    rows = [];
+    idx = 1;
   }
   currentIdx = idx;
   header.innerHTML = "Case No.: " + currentIdx;
@@ -59,6 +60,15 @@ function validateView(idx=-1) {
   if (state == EDIT) {
     addButtonBar.style.display = "none";
     editButtonBar.style.display = "block";
+    row = row[idx - 1]
+    if (row) {
+      date.value = row.date;
+      hn.value = row.hn;
+      op.value = row.op;
+      df.value = row.df;
+      wr.value = row.wr;
+      pn.value = row.pn;
+    }
   } else {
     reset();
     addButtonBar.style.display = "block";
@@ -67,11 +77,11 @@ function validateView(idx=-1) {
 }
 
 function back() {
-
+  validateView(currentIdx - 1)
 }
 
 function next() {
-
+  validateView(currentIdx + 1)
 }
 
 function add() {
