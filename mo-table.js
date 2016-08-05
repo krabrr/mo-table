@@ -196,6 +196,13 @@ function exportTable() {
   element.click();
   document.body.removeChild(element);*/
   var request = new XMLHttpRequest("Microsoft.XMLHTTP");
+  request.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      if (xmlhttp.responseText) {
+        document.getElementById("mo-iframe").src = xmlhttp.responseText;
+      }
+    }
+  };
   request.open("GET", "connect.php?command=download", true);
   request.setRequestHeader("Content-type", "text/plain");
   request.setRequestHeader("Content-Disposition", "attachment; filename=report.csv");
