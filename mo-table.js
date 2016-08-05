@@ -199,7 +199,7 @@ function exportTable() {
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {
       if (request.responseText) {
-        document.getElementById("mo-iframe").src = xmlhttp.request;
+        document.getElementById("mo-iframe").src = request.responseText;
       }
     }
   };
