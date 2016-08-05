@@ -52,7 +52,7 @@ if ($command == "get") {
       fwrite($file, $content);
       fclose($file);
       header("Content-type: text/plain");
-      header("Content-Disposition: attachment; filename='report.csv'");
+      header("Content-Disposition: attachment; filename=report.csv");
       echo $content;
     } else {
       error_log(mysqli_error($conn), 3, $log_path);

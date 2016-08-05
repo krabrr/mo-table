@@ -173,8 +173,6 @@ function deleteCurrent() {
 function exportTable() {
   var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
-  element.setAttribute('download', 'report.csv');
-  element.setAttribute('target', '_blank');
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
