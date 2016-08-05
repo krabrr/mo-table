@@ -51,12 +51,15 @@ if ($command == "get") {
       $file = fopen($report_path, "w") or die("Unable to open file");
       fwrite($file, $content);
       fclose($file);
-      echo $report_file_name;
+      header("Content-type: text/plain");
+      header("Content-Disposition: attachment; filename='report.csv'");
+      echo $content;
     } else {
       error_log(mysqli_error($conn), 3, $log_path);
       die();
     }
-    return;
+    mysqli_close($conn);
+    die();
   } else {
     error_log("command not found", 3, $log_path);
     die();
