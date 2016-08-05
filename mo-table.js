@@ -171,7 +171,7 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  /*var row, i,
+  var row, i,
     result = "",
     element = document.createElement("a");
   if (!rows || !rows.length) {
@@ -191,11 +191,12 @@ function exportTable() {
 
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(result));
   element.setAttribute('download', 'report.csv');
+  element.setAttribute('target', '_blank');
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
-  document.body.removeChild(element);*/
-  var request = new XMLHttpRequest("Microsoft.XMLHTTP");
+  document.body.removeChild(element);
+  /*var request = new XMLHttpRequest("Microsoft.XMLHTTP");
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {
       if (request.responseText) {
@@ -206,5 +207,5 @@ function exportTable() {
   request.open("GET", "connect.php?command=download", true);
   request.setRequestHeader("Content-type", "text/plain");
   request.setRequestHeader("Content-Disposition", "attachment; filename=report.csv");
-  request.send();
+  request.send();*/
 }
