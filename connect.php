@@ -1,4 +1,6 @@
 <?php
+$report_file_name = "report.csv";
+$report_path = "/var/www/html/mo-table/report.csv";
 $log_path = "/var/www/html/mo-table/log";
 $conn = mysqli_connect("www.nbaramichai.com", "nbaramichai", "momomo", "mo");
 if (!$conn) {
@@ -46,7 +48,10 @@ if ($command == "get") {
         $content .= $row["pname"];
         $content .= "\n";
       }
-      echo $content;
+      $file = fopen($report_path, "w") or die("Unable to open file");
+      fwrite($file, $content);
+      fclose($file);
+      echo $report_file_name;
     } else {
       error_log(mysqli_error($conn), 3, $log_path);
       die();
