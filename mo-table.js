@@ -197,9 +197,9 @@ function exportTable() {
   document.body.removeChild(element);*/
   var request = new XMLHttpRequest("Microsoft.XMLHTTP");
   request.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      if (xmlhttp.responseText) {
-        document.getElementById("mo-iframe").src = xmlhttp.responseText;
+    if (request.readyState == 4 && request.status == 200) {
+      if (request.responseText) {
+        document.getElementById("mo-iframe").src = xmlhttp.request;
       }
     }
   };
