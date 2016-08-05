@@ -171,41 +171,11 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  var row, i,
-    result = "",
-    element = document.createElement("a");
-  if (!rows || !rows.length) {
-    return;
-  }
-  result += "Date,HN,Operation,DF,Ward/Room,Patient Name\n";
-  for (i = 0; i < rows.length; i++) {
-    row = rows[i];
-    result += row.date + ",";
-    result += row.hn + ",";
-    result += row.op + ",";
-    result += row.df + ",";
-    result += row.wr + ",";
-    result += row.pn + ",";
-    result += "\n";
-  }
-
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(result));
+  element.setAttribute('href', 'connect.php?command=download');
   element.setAttribute('download', 'report.csv');
   element.setAttribute('target', '_blank');
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
-  document.body.removeChild(element);
-  /*var request = new XMLHttpRequest("Microsoft.XMLHTTP");
-  request.onreadystatechange = function() {
-    if (request.readyState == 4 && request.status == 200) {
-      if (request.responseText) {
-        document.getElementById("mo-iframe").src = request.responseText;
-      }
-    }
-  };
-  request.open("GET", "connect.php?command=download", true);
-  request.setRequestHeader("Content-type", "text/plain");
-  request.setRequestHeader("Content-Disposition", "attachment; filename=report.csv");
-  request.send();*/
+  document.body.removeChild(element);*/
 }
