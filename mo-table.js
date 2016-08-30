@@ -182,7 +182,7 @@ function exportTable() {
     month = date_obj.getMonth() + 1;
     if (months.indexOf(month) < 0) months.push(month);
   }
-  
+
   if (!months.length) return;
   ul = document.getElementById("month-selector");
   while (ul.firstChild) {
@@ -190,7 +190,7 @@ function exportTable() {
   }
   for (i = 0; i < months.length; i++) {
     li = document.createElement("li");
-    li.setAttribute("id", String(months[i]));
+    li.setAttribute("month", String(months[i]));
     li.onclick = monthSelectedHandler;
     n = document.createTextNode(monthNames[months[i]-1]);
     li.appendChild(n);
@@ -198,7 +198,9 @@ function exportTable() {
   }
 
   function monthSelectedHandler(event) {
-    console.log(event);
+    li = event.target;
+    if (!li) return;
+    console.log(li.getAttribute("month"));
   }
   /*var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
