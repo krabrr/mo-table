@@ -171,10 +171,16 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  var element = document.createElement("a");
+  var i, row, date_str;
+  for (i = 0; i < rows.length; i++) {
+    row = rows[i];
+    date_str = row.date;
+    console.log(date_str);
+  }
+  /*var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
   element.style.display = 'none';
   document.body.appendChild(element);
   element.click();
-  document.body.removeChild(element);
+  document.body.removeChild(element);*/
 }
