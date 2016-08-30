@@ -171,12 +171,33 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  var i, row, date_str, date_obj;
+  var i, row, date_str, date_obj, month, ul, li, n,
+    months = [], monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
   for (i = 0; i < rows.length; i++) {
     row = rows[i];
     date_str = row.date;
     date_obj = new Date(date_str);
-    console.log(date_str + ":" + date_obj.getMonth());
+    month = date_obj.getMonth() + 1;
+    if (months.indexOf(month) < 0) months.push(month);
+  }
+  if (!months.length) return;
+  ul = document.getElementById("month-selector");
+  while (ul.firstChild) {
+    ul.removeChild(ul.firstChild);
+  }
+  for (i = 0; i < months.length; i++) {
+    li = document.createElement("li");
+    li.setAttribute("id", String(months[i]));
+    li.onclick = monthSelectedHandler;
+    n = document.createTextNode(monthNames[months[i]-1]);
+    li.appendChild(n);
+    ul.appendChild(li);
+  }
+
+  function monthSelectedHandler(event) {
+    console.log(event);
   }
   /*var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
