@@ -200,7 +200,12 @@ function exportTable() {
   function monthSelectedHandler(event) {
     li = event.target;
     if (!li) return;
-    console.log(li.getAttribute("month"));
+    var element = document.createElement("a");
+    element.setAttribute('href', 'connect.php?command=download&month='+li.getAttribute("month").toString());
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
   }
   /*var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
