@@ -37,6 +37,10 @@ if ($command == "get") {
 
   } else if ($command == "download") {
     $query = "SELECT * FROM mo";
+    $month = $_GET["month"];
+    if ($month) {
+      $query .= " WHERE MONTH(Date) = $month";
+    }
     if ($result = mysqli_query($conn, $query)) {
       $content = "Date,HN,Operation,DF,Ward/Room,Patient Name\n";
       while ($row = mysqli_fetch_assoc($result)) {
