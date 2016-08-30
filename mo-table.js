@@ -182,6 +182,7 @@ function exportTable() {
     month = date_obj.getMonth() + 1;
     if (months.indexOf(month) < 0) months.push(month);
   }
+  
   if (!months.length) return;
   ul = document.getElementById("month-selector");
   while (ul.firstChild) {
