@@ -171,11 +171,12 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  var i, row, date_str;
+  var i, row, date_str, date_obj;
   for (i = 0; i < rows.length; i++) {
     row = rows[i];
     date_str = row.date;
-    console.log(date_str);
+    date_obj = new Date(date_str);
+    console.log(date_str + ":" + date_obj.getMonth());
   }
   /*var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
