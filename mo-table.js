@@ -171,8 +171,8 @@ function deleteCurrent() {
 }
 
 function exportTable() {
-  var i, row, date_str, date_obj, month, ul, li, n,
-    months = [], monthNames = ["January", "February", "March", "April", "May", "June",
+  var i, row, date_str, date_obj, month, year, text, ul, li, n, already = {},
+    texts = [], monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
   for (i = 0; i < rows.length; i++) {
@@ -180,19 +180,27 @@ function exportTable() {
     date_str = row.date;
     date_obj = new Date(date_str);
     month = date_obj.getMonth() + 1;
-    if (months.indexOf(month) < 0) months.push(month);
+    year = date_obj.getFullYear();
+    text = month + " " + year;
+    if (!already[text]) {
+      texts.push({month: month, year: year});
+      already[text] = true;
+    }
   }
 
-  if (!months.length) return;
+  texts.sort(compareYear);
+  
+  if (!texts.length) return;
   ul = document.getElementById("month-selector");
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
-  for (i = 0; i < months.length; i++) {
+  for (i = 0; i < texts.length; i++) {
     li = document.createElement("li");
-    li.setAttribute("month", String(months[i]));
+    li.setAttribute("month", String(texts[i].month));
+    li.setAttribute("year", String(texts[i].year));
     li.onclick = monthSelectedHandler;
-    n = document.createTextNode(monthNames[months[i]-1]);
+    n = document.createTextNode(monthNames[texts[i].month-1] + " " + texts[i].year);
     li.appendChild(n);
     ul.appendChild(li);
   }
@@ -201,11 +209,19 @@ function exportTable() {
     li = event.target;
     if (!li) return;
     var element = document.createElement("a");
-    element.setAttribute('href', 'connect.php?command=download&month='+li.getAttribute("month").toString());
+    element.setAttribute('href', 'connect.php?command=download&month='+li.getAttribute("month").toString()+'&year='+li.getAttribute("year").toString());
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+  }
+
+  function compareYear(a, b) {
+    if (a.year < b.year)
+      return -1;
+    if (a.year > b.year)
+      return 1;
+    return 0;
   }
   /*var element = document.createElement("a");
   element.setAttribute('href', 'connect.php?command=download');
