@@ -15,6 +15,8 @@ function init() {
   df = document.getElementById("df");
   wr = document.getElementById("wr");
   pn = document.getElementById("pn");
+  goto = document.getElementById("goto");
+  goButton = document.getElementById("go")
   backButton = document.getElementById("back");
   nextButton = document.getElementById("next");
   addButton = document.getElementById("add");
@@ -25,6 +27,7 @@ function init() {
   addButtonBar = document.getElementById("add-bar");
   editButtonBar = document.getElementById("edit-bar");
 
+  goButton.onclick = go;
   backButton.onclick = back;
   nextButton.onclick = next;
   addButton.onclick = add;
@@ -86,6 +89,20 @@ function validateView(idx) {
   } else {
     backButton.removeAttribute("disabled");
   }
+}
+
+function go() {
+  var idx = -1, target = goto.value;
+  if (!target) return;
+  for (i = 0; i < rows.length; i++) {
+    row = rows[i];
+    date_str = row.date;
+    if (date_str == gotodate) {
+      idx = i;
+      break;
+    }
+  }
+  validateView(idx)
 }
 
 function back() {
@@ -189,7 +206,7 @@ function exportTable() {
   }
 
   texts.sort(compareYear);
-  
+
   if (!texts.length) return;
   ul = document.getElementById("month-selector");
   while (ul.firstChild) {

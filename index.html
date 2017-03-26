@@ -18,6 +18,22 @@
     .mo-button {
       width: 100%;
     }
+    .go-button {
+      margin-left: 16px;
+      margin-bottom: 16px;
+    }
+    .myrow {
+      font-size: 0;
+      margin-bottom: 0 !important;
+    }
+    .myrow > * {
+      float: none;
+      display: inline-block;
+      font-size: 14px; /* if using LESS it's quicker to just use @font-size-base */
+    }
+    .myrow > *:last-child {
+      vertical-align: bottom;
+    }
     .row {
       margin-bottom: 10px;
     }
@@ -27,6 +43,12 @@
     ul {
       width: 100%;
       padding: 5px 20px !important;
+    }
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     @media only screen and (max-device-width: 400px) {
@@ -44,6 +66,9 @@
         font-size: 3em;
         margin-top: .5em;
       }
+      .go-button {
+        font-size: 4.3rem;
+      }
       .caret {
         font-size: 3em;
       }
@@ -51,9 +76,15 @@
         font-size: 3em;
       }
       #navi-bar {
-        margin-top: 3em;
+        margin-top: 1em;
       }
 	  }
+
+    @media (min-width: 768px) {
+      .container {
+        width: auto;
+      }
+    }
   </style>
   <script src="mo-table.js" charset="utf-8"></script>
 </head>
@@ -73,17 +104,30 @@
         <label class="mo-label" for="op">Operation:</label>
         <input id="op" class="mo-input form-control" type="text" name="op" placeholder="Text">
       </div>
-      <div class="form-group">
-        <label class="mo-label" for="df">DF:</label>
-        <input id="df" class="mo-input form-control" type="number" name="df" placeholder="Number">
-      </div>
-      <div class="form-group">
-        <label class="mo-label" for="wr">Ward/Room:</label>
-        <input id="wr" class="mo-input form-control" type="text" name="wr" placeholder="Text">
+      <div class="container">
+        <div class="row myrow">
+          <div class="form-group col-xs-6">
+            <label class="mo-label" for="df">DF:</label>
+            <input id="df" class="mo-input form-control" type="number" name="df" placeholder="Number">
+          </div>
+          <div class="form-group col-xs-6">
+            <label class="mo-label" for="wr">Ward/Room:</label>
+            <input id="wr" class="mo-input form-control" type="text" name="wr" placeholder="Text">
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label class="mo-label" for="pn">Patient Name:</label>
         <input id="pn" class="mo-input form-control" type="text" name="pn" placeholder="Text">
+      </div>
+      <div class="container">
+        <div class="row myrow">
+          <div class="form-group col-xs-8">
+            <label class="mo-label" for="goto">Go To:</label>
+            <input id="goto" class="mo-input form-control" type="date" name="goto" placeholder="YYYY-MM-DD">
+          </div>
+          <input id="go" class="go-button btn btn-primary col-xs-2" type="button" name="go" value="Go">
+        </div>
       </div>
     </form>
     <div id="navi-bar" class="row">
@@ -110,11 +154,13 @@
         <input id="delete" class="mo-button btn btn-primary" type="button" name="delete" value="Delete">
       </div>
     </div>
-    <div class="row dropdown">
-      <button id="export" class="mo-button btn btn-primary dropdown-toggle" type="button" name="export" data-toggle="dropdown">Export</button>
-      <ul id="month-selector" class="dropdown-menu">
+    <div class="row">
+      <div class="dropdown col-xs-12">
+        <button id="export" class="mo-button btn btn-primary dropdown-toggle" type="button" name="export" data-toggle="dropdown">Export</button>
+        <ul id="month-selector" class="dropdown-menu">
 
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
   <iframe id="mo-iframe" style="display:none;"></iframe>
