@@ -97,7 +97,7 @@ function go() {
   for (i = 0; i < rows.length; i++) {
     row = rows[i];
     date_str = row.date;
-    if (date_str == gotodate) {
+    if (date_str == target) {
       idx = i;
       break;
     }
