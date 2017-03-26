@@ -98,7 +98,7 @@ function go() {
     row = rows[i];
     date_str = row.date;
     if (date_str == target) {
-      idx = i;
+      idx = i + 1;
       break;
     }
   }
