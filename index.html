@@ -92,9 +92,18 @@
   <div class="mo-container">
     <h3 id="header" class="mo-label"></h3>
     <form>
-      <div class="form-group">
-        <label class="mo-label" for="date">Date:</label>
-        <input id="date" class="mo-input form-control" type="date" name="date" placeholder="YYYY-MM-DD">
+      <div class="container">
+        <div class="row myrow">
+          <div class="form-group col-xs-4">
+            <label class="mo-label" for="date">Date:</label>
+            <input id="date" class="mo-input form-control" type="date" name="date" placeholder="YYYY-MM-DD">
+          </div>
+          <div class="form-group col-xs-4">
+            <label class="mo-label" for="goto">Go To:</label>
+            <input id="goto" class="mo-input form-control" type="date" name="goto" placeholder="YYYY-MM-DD">
+          </div>
+          <input id="go" class="go-button btn btn-primary col-xs-2" type="button" name="go" value="Go">
+        </div>
       </div>
       <div class="form-group">
         <label class="mo-label" for="hn">HN:</label>
@@ -120,24 +129,7 @@
         <label class="mo-label" for="pn">Patient Name:</label>
         <input id="pn" class="mo-input form-control" type="text" name="pn" placeholder="Text">
       </div>
-      <div class="container">
-        <div class="row myrow">
-          <div class="form-group col-xs-8">
-            <label class="mo-label" for="goto">Go To:</label>
-            <input id="goto" class="mo-input form-control" type="date" name="goto" placeholder="YYYY-MM-DD">
-          </div>
-          <input id="go" class="go-button btn btn-primary col-xs-2" type="button" name="go" value="Go">
-        </div>
-      </div>
     </form>
-    <div id="navi-bar" class="row">
-      <div class="col-xs-6">
-        <input id="back" class="mo-button btn btn-primary" type="button" name="back" value="Back">
-      </div>
-      <div class="col-xs-6">
-        <input id="next" class="mo-button btn btn-primary" type="button" name="next" value="Next">
-      </div>
-    </div>
     <div id="add-bar" class="row">
       <div class="col-xs-6">
         <input id="add" class="mo-button btn btn-primary" type="button" name="add" value="Add">
@@ -152,6 +144,14 @@
       </div>
       <div class="col-xs-6">
         <input id="delete" class="mo-button btn btn-primary" type="button" name="delete" value="Delete">
+      </div>
+    </div>
+    <div id="navi-bar" class="row">
+      <div class="col-xs-6">
+        <input id="back" class="mo-button btn btn-primary" type="button" name="back" value="Back">
+      </div>
+      <div class="col-xs-6">
+        <input id="next" class="mo-button btn btn-primary" type="button" name="next" value="Next">
       </div>
     </div>
     <div class="row">
