@@ -15,27 +15,18 @@
     .mo-input {
       width: 100%;
     }
+    .goto-input {
+      width: 100%;
+    }
     .mo-button {
       width: 100%;
     }
-    .go-button {
-      margin-left: 16px;
-      margin-bottom: 16px;
-    }
-    .myrow {
-      font-size: 0;
-      margin-bottom: 0 !important;
-    }
-    .myrow > * {
-      float: none;
-      display: inline-block;
-      font-size: 14px; /* if using LESS it's quicker to just use @font-size-base */
-    }
-    .myrow > *:last-child {
-      vertical-align: bottom;
-    }
     .row {
       margin-bottom: 10px;
+    }
+    #goto-row {
+      display: flex;
+      align-items: center;
     }
     #edit-bar {
       display: none;
@@ -58,16 +49,19 @@
       .mo-label {
         font-size: 3em;
       }
+      #goto-label {
+        margin-top: 0.5em;
+      }
       .mo-input {
         font-size: 3em;
         height: 1.5em;
       }
+      #goto {
+        margin-top: .5em;
+      }
       .mo-button {
         font-size: 3em;
         margin-top: .5em;
-      }
-      .go-button {
-        font-size: 4.3rem;
       }
       .caret {
         font-size: 3em;
@@ -92,18 +86,9 @@
   <div class="mo-container">
     <h3 id="header" class="mo-label"></h3>
     <form>
-      <div class="container">
-        <div class="row myrow">
-          <div class="form-group col-xs-4">
-            <label class="mo-label" for="date">Date:</label>
-            <input id="date" class="mo-input form-control" type="date" name="date" placeholder="YYYY-MM-DD">
-          </div>
-          <div class="form-group col-xs-4">
-            <label class="mo-label" for="goto">Go To:</label>
-            <input id="goto" class="mo-input form-control" type="date" name="goto" placeholder="YYYY-MM-DD">
-          </div>
-          <input id="go" class="go-button btn btn-primary col-xs-2" type="button" name="go" value="Go">
-        </div>
+      <div class="form-group form-group-40">
+        <label class="mo-label" for="date">Date:</label>
+        <input id="date" class="mo-input form-control" type="date" name="date" placeholder="YYYY-MM-DD">
       </div>
       <div class="form-group">
         <label class="mo-label" for="hn">HN:</label>
@@ -113,17 +98,13 @@
         <label class="mo-label" for="op">Operation:</label>
         <input id="op" class="mo-input form-control" type="text" name="op" placeholder="Text">
       </div>
-      <div class="container">
-        <div class="row myrow">
-          <div class="form-group col-xs-6">
-            <label class="mo-label" for="df">DF:</label>
-            <input id="df" class="mo-input form-control" type="number" name="df" placeholder="Number">
-          </div>
-          <div class="form-group col-xs-6">
-            <label class="mo-label" for="wr">Ward/Room:</label>
-            <input id="wr" class="mo-input form-control" type="text" name="wr" placeholder="Text">
-          </div>
-        </div>
+      <div class="form-group">
+        <label class="mo-label" for="df">DF:</label>
+        <input id="df" class="mo-input form-control" type="number" name="df" placeholder="Number">
+      </div>
+      <div class="form-group">
+        <label class="mo-label" for="wr">Ward/Room:</label>
+        <input id="wr" class="mo-input form-control" type="text" name="wr" placeholder="Text">
       </div>
       <div class="form-group">
         <label class="mo-label" for="pn">Patient Name:</label>
@@ -154,7 +135,18 @@
         <input id="next" class="mo-button btn btn-primary" type="button" name="next" value="Next">
       </div>
     </div>
-    <div class="row">
+    <div id="goto-row" class="row">
+      <div class="col-xs-3">
+        <label id="goto-label" class="mo-label" for="goto">Go To:</label>
+      </div>
+      <div class="col-xs-6">
+        <input id="goto" class="mo-input form-control" type="date" name="goto" placeholder="YYYY-MM-DD">
+      </div>
+      <div class="col-xs-3">
+        <input id="go" class="mo-button btn btn-primary" type="button" name="go" value="Go">
+      </div>
+    </div>
+    <div id="export-row" class="row">
       <div class="dropdown col-xs-12">
         <button id="export" class="mo-button btn btn-primary dropdown-toggle" type="button" name="export" data-toggle="dropdown">Export</button>
         <ul id="month-selector" class="dropdown-menu">
